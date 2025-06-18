@@ -1,3 +1,10 @@
+# Angular-specific
+dist/
+.angular/
+.angular-cache/
+out-tsc/
+coverage/
+
 # Logs
 logs
 *.log
