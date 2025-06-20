@@ -50,6 +50,7 @@ Frontend application for the **Outil de Maria** project, developed with **Angula
 
 ```bash
 docker-compose up --build
+
 ```
 
 App will run at: http://localhost:4200
@@ -108,6 +109,7 @@ MIT or internal (to confirm)
 You're now ready to:
  Commit those to GitHub  
  Use them as base for onboarding, CI, Docker, tests
+
 
 ### Next Step?
 Would you like me to now:
