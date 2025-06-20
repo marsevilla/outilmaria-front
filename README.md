@@ -1,16 +1,16 @@
-## ✅ `README.md` for `outilmaria-front` (Angular frontend)
+## `README.md` for `outilmaria-front` (Angular frontend)
 
 Save this file as:  
 📄 `outilmaria-front/README.md`
 
 ```markdown
-# 🧩 outilmaria-front — Angular Frontend
+# outilmaria-front — Angular Frontend
 
 Frontend application for the **Outil de Maria** project, developed with **Angular 19.2.15**. It allows internal users to submit and track DAE requests via a clean and responsive UI.
 
 ---
 
-## 🌟 Features (Planned)
+## Features (Planned)
 - Form wizard for DAE creation
 - Role-based navigation & permissions
 - Status tracking workflow
@@ -20,7 +20,7 @@ Frontend application for the **Outil de Maria** project, developed with **Angula
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer     | Technology    |
 |-----------|---------------|
@@ -33,7 +33,7 @@ Frontend application for the **Outil de Maria** project, developed with **Angula
 
 ---
 
-## 📁 Planned Folder Structure
+## Planned Folder Structure
 
 <pre> src/app/ 
   ├── pages/ # Feature-based components 
@@ -109,8 +109,8 @@ MIT or internal (to confirm)
 ---
 
 You're now ready to:
-✅ Commit those to GitHub  
-✅ Use them as base for onboarding, CI, Docker, tests
+ Commit those to GitHub  
+ Use them as base for onboarding, CI, Docker, tests
 
 ---
 
