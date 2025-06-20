@@ -14,7 +14,7 @@ FROM nginx:alpine
 
 # Remove default page and copy built app
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/dist/temp-front /usr/share/nginx/html
+COPY --from=builder /app/dist/temp-front/browser /usr/share/nginx/html
 
 
 EXPOSE 80
