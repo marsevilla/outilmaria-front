@@ -35,15 +35,13 @@ Frontend application for the **Outil de Maria** project, developed with **Angula
 
 ## Planned Folder Structure
 
-<pre> src/app/ 
+ src/app/ 
   ├── pages/ # Feature-based components 
   ├── core/ # Auth services, guards, interceptors
   ├── shared/ # Reusable components (e.g. buttons, tables)
   ├── models/ # Interfaces
   ├── interceptors/ # HTTP error & auth interceptors
-  </pre>
-
-
+  
 ---
 
 ## Local Development
@@ -104,21 +102,19 @@ fix(ui): fix column alignment in table
 
 ### License
 MIT or internal (to confirm)
-```bash
 
----
+```bash
 
 You're now ready to:
  Commit those to GitHub  
  Use them as base for onboarding, CI, Docker, tests
-
----
 
 ### Next Step?
 Would you like me to now:
 - **Generate your backend folder structure (`app/api`, `models`, etc.)** with stubs you can start filling?
 - Or move on to **tooling (black, flake8, eslint, prettier, pytest setup)**?
 You decide what’s next!
+
 ```
 
 
