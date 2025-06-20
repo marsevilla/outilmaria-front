@@ -1,11 +1,20 @@
-FROM node:18
+# Build Angular app
+FROM node:18 AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN rm -rf node_modules package-lock.json
-RUN npm install -g @angular/cli && npm install
+RUN npm install
 
 COPY . .
+RUN npm run build
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+# Serve using Nginx
+FROM nginx:alpine
+
+# Remove default page and copy built app
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist/outilmaria-front /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
