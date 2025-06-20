@@ -1,9 +1,3 @@
-## `README.md` for `outilmaria-front` (Angular frontend)
-
-Save this file as:  
-📄 `outilmaria-front/README.md`
-
-```markdown
 # outilmaria-front — Angular Frontend
 
 Frontend application for the **Outil de Maria** project, developed with **Angular 19.2.15**. It allows internal users to submit and track DAE requests via a clean and responsive UI.
@@ -34,13 +28,15 @@ Frontend application for the **Outil de Maria** project, developed with **Angula
 ---
 
 ## Planned Folder Structure
-
- src/app/ 
+<pre>
+   src/app/ 
   ├── pages/ # Feature-based components 
   ├── core/ # Auth services, guards, interceptors
   ├── shared/ # Reusable components (e.g. buttons, tables)
   ├── models/ # Interfaces
   ├── interceptors/ # HTTP error & auth interceptors
+</pre>
+
   
 ---
 
@@ -109,15 +105,9 @@ MIT or internal (to confirm)
 You're now ready to:
  Commit those to GitHub  
  Use them as base for onboarding, CI, Docker, tests
-
-
-### Next Step?
-Would you like me to now:
-- **Generate your backend folder structure (`app/api`, `models`, etc.)** with stubs you can start filling?
-- Or move on to **tooling (black, flake8, eslint, prettier, pytest setup)**?
-You decide what’s next!
-
 ```
+
+
 
 
 
