@@ -100,12 +100,7 @@ fix(ui): fix column alignment in table
 ### License
 MIT or internal (to confirm)
 
-```bash
 
-You're now ready to:
- Commit those to GitHub  
- Use them as base for onboarding, CI, Docker, tests
-```
 
 
 
