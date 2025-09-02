@@ -1,5 +1,5 @@
 # --For angular 17+ version that support Node.js 18.x
- name: Deploy Angular Appon:
+ name: Deploy Angular App
   push:
     branches:
       - mainjobs:
