@@ -1,19 +1,24 @@
 # --For angular 17+ version that support Node.js 18.x
- name: Deploy Angular App
+name: Deploy Angular App
+on:
   push:
     branches:
-      - mainjobs:
+      - main
+jobs:
   build:
-    runs-on: ubuntu-latest    steps:
+    runs-on: ubuntu-latest
+    steps:
     - name: Checkout code
       uses: actions/checkout@v3
-- name: Set up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18.x' # Use Node.js 18.x, which is compatible with Angular 17 and 18
+        node-version: '18.x' # Use Node.js 18.x, compatible with Angular 17+
+    - name: Install pnpm
+      run: npm install -g pnpm # Install pnpm globally
     - name: Install dependencies
-      run: npm ci # Use npm ci for faster installs and CI consistency
+      run: pnpm install --frozen-lockfile # Use pnpm to install dependencies with lockfile integrity
     - name: Build Angular project
-      run: npm run build -- --configuration production # Update to match your build script
+      run: pnpm build -- --configuration production # Build the project using pnpm
     - name: Run tests
-      run: npm test
+      run: pnpm test # Run tests using pnpm
