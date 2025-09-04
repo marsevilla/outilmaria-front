@@ -35,3 +35,12 @@ jobs:
 
       - name: Run tests
         run: npm run test
+  build:
+    image: $CI_REGISTRY/group/project/docker:24.0.5
+    services:
+      - name: $CI_REGISTRY/group/project/docker:24.0.5-dind
+        alias: docker
+    stage: build
+    script:
+      - docker build -t temp-front .
+      - docker run temp-front /script/to/run/tests
