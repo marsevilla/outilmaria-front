@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: app-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: ghcr.io/marsevilla/outilmaria-front:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "256Mi"  # Maximum memory allowed
+            cpu: "200m"       # Maximum CPU allowed (200 milliCPU)
+          requests:
+            memory: "128Mi"  # Initial memory request
+            cpu: "100m"       # Initial CPU request
