@@ -62,3 +62,34 @@ jobs:
         #   subject-name: marsevillaesc/outilmaria-front
         # #   subject-digest: ##${##{ steps.push.outputs.digest }}
         # #   push-to-registry: true #
+prepare-deploy-job:
+  stage: deploy
+  image: bhgedigital/envsubst
+  environment: production
+  script:
+    - envsubst < ./k8s/deployment.yaml > ./k8s/deployment_prod.yaml
+  cache:
+    key: "$CI_COMMIT_SHORT_SHA-k8s"
+    policy: push
+    paths:
+      - ./k8s
+
+deploy-job:
+  stage: deploy
+  needs:
+    - prepare-deploy-job
+  image:
+    name: bitnami/kubectl
+    entrypoint: [""]
+  environment: production
+  script:
+    - kubectl apply -f ./k8s/namespace.yaml
+    - kubectl apply -f ./k8s/deployment_prod.yaml
+    - kubectl apply -f ./k8s/service.yaml
+    - kubectl apply -f ./k8s/ingress.yaml
+  cache:
+    key: "$CI_COMMIT_SHORT_SHA-k8s"
+    policy: pull
+    paths:
+      - ./k8s
+

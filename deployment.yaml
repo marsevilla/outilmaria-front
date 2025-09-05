@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: app-frontend
+  name: frontend-deployment
+  namespace: mar-frontend
 spec:
   replicas: 2
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: marsevillaesc/outilmaria-front:latest
+        image: marsevillaesc/outilmaria-front:latest:$CI_COMMIT_SHORT_SHA
         ports:
         - containerPort: 80
         resources:
@@ -25,3 +25,30 @@ spec:
           requests:
             memory: "128Mi"  # Initial memory request
             cpu: "100m"       # Initial CPU request
+      livenessProbe:
+          httpGet:
+            path: /actuator/health                # The path to check for the liveness probe
+            port: 8081               # The port to check on
+          initialDelaySeconds: 15  # Wait this many seconds before starting the probe
+          periodSeconds: 10        # Check the probe every 10 seconds
+      readinessProbe:
+          httpGet:
+            path: /actuator/health                # The path to check for the readiness probe
+            port: 8081               # The port to check on
+          initialDelaySeconds: 5   # Wait this many seconds before starting the probe
+          periodSeconds: 5
+    tolerations:
+      - key: "kubernetes.azure.com/scalesetpriority"
+        operator: "Equal"
+        value: "spot"
+        effect: "NoSchedule"
+    affinity:
+      nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: "kubernetes.azure.com/scalesetpriority"
+                operator: In
+                values:
+                  - "spot"
